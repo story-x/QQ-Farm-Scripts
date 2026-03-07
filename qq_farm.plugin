@@ -5,9 +5,7 @@
 #!date=2026-03-07
 
 [Script]
-# 匹配目标请求，requires-body=true 必须开启以解析 Body 内容
-http-request ^https?:\/\/gate-obt\.nqf\.qq\.com script-path=https://raw.githubusercontent.com/你的用户名/你的仓库名/main/qq_farm_code.js, requires-body=true, tag=抓取QQ农场Code
+http-request ^https?:\/\/gate-obt\.nqf\.qq\.com script-path=https://raw.githubusercontent.com/Unreal-Null/QQ-Farm-Scripts/main/qq_farm_code.js, requires-body=true, tag=抓取QQ农场Code
 
 [Mitm]
-# 必须解密该域名才能获取加密包内的 Code
 hostname = gate-obt.nqf.qq.com
