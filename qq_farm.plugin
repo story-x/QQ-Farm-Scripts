@@ -3,7 +3,7 @@
 #!author=Gemini_Assistant
 
 [Script]
-http-request ^https?:\/\/gate-obt\.nqf\.qq\.com script-path=https://raw.githubusercontent.com/Unreal-Null/QQ-Farm-Scripts/main/qq_farm_code.js, requires-body=true, tag=抓取QQ农场Code
+http-request ^https?:\/\/gate-obt\.nqf\.qq\.com script-path=https://raw.githubusercontent.com/story-x/QQ-Farm-Scripts/main/qq_farm_code.js, requires-body=true, tag=抓取QQ农场Code
 
 [Mitm]
 hostname = gate-obt.nqf.qq.com
