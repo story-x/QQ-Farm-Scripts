@@ -34,7 +34,7 @@ if (farmCode) {
 
     // 【新增】Loon 剪贴板配置：定义通知的附加属性
     const attach = {
-        "clipboard": "ncdl" + farmCode
+        "clipboard": farmCode
     };
 
     // 发送系统通知 (传入 attach 参数)
