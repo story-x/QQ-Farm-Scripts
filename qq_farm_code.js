@@ -22,17 +22,21 @@ if (!farmCode && body) {
         const obj = JSON.parse(body);
         farmCode = obj.code || (obj.data && obj.data.code);
     } catch (e) {
-        // 如果是普通字符串
-        const bodyMatch = body.match(/code["']?\s*[:=]\s*["']?([^"']+)["']?/);
+        // 【修复】将 body 强制转为字符串，防止非 string 类型触发 match is not a function 错误
+        const bodyMatch = String(body).match(/code["']?\s*[:=]\s*["']?([^"']+)["']?/);
         if (bodyMatch) farmCode = bodyMatch[1];
     }
 }
 
 if (farmCode) {
+    // 【关键修复】确保 farmCode 为纯字符串。
+    // 如果 JSON 解析出的 code 是 Number，直接传入剪贴板或 write 会导致抛出 TypeError 报错。
+    farmCode = String(farmCode);
+
     // 存储到本地，新 Code 会直接覆盖旧 Code
     $persistentStore.write(farmCode, "QQ_Farm_Code");
 
-    // 【新增】Loon 剪贴板配置：定义通知的附加属性
+    // Loon 剪贴板配置：定义通知的附加属性
     const attach = {
         "clipboard": farmCode
     };
